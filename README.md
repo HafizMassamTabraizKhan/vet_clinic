@@ -52,8 +52,6 @@ After you're finished please remove all the comments and instructions!
 
 > This is a relational database that stores information about animals.
 
-**[Vet Clinic Database]** is a...
-
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
