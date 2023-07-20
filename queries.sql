@@ -25,23 +25,34 @@ BEGIN;
 
     SELECT * FROM animals;
 
-ROLLBACK;
+    ROLLBACK;
+
+COMMIT;
 
 SELECT * FROM animals;
 
-UPDATE animals SET species='digimon' WHERE name LIKE '%mon';
+BEGIN;
 
-UPDATE animals SET species='pokemon' WHERE species IS NULL;
+    UPDATE animals SET species='digimon' WHERE name LIKE '%mon';
+
+    UPDATE animals SET species='pokemon' WHERE species IS NULL;
+
+    SELECT * FROM animals;
+
+COMMIT;
 
 SELECT * FROM animals;
 
 BEGIN;
 
     DELETE FROM animals;
+    SELECT * FROM animals;
 
 ROLLBACK;
 
 SELECT * FROM animals;
+
+COMMIT;
 
 BEGIN;
 
@@ -72,10 +83,12 @@ SELECT MAX(escape_attempts), neutered
 FROM animals
 GROUP BY neutered;
 
-SELECT MIN(weight_kg) AS min_weight, MAX(weight_kg) AS max_weight
-FROM animals;
+SELECT species, MIN(weight_kg) AS min_weight, MAX(weight_kg) AS max_weight
+FROM animals
+GROUP BY species;
 
-SELECT AVG(escape_attempts) 
+SELECT species, AVG(escape_attempts) 
 FROM animals 
 WHERE date_of_birth 
-BETWEEN '1990-01-01' AND '2000-12-31';
+BETWEEN '1990-01-01' AND '2000-12-31'
+GROUP BY species;
