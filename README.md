@@ -75,8 +75,6 @@ After you're finished please remove all the comments and instructions!
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 Hafiz Massam Tabraiz Khan
 
 - GitHub: [@githubhandle](https://github.com/HafizMassamTabraizKhan)
@@ -88,8 +86,6 @@ After you're finished please remove all the comments and instructions!
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
-
-> Describe 1 - 3 features you will add to the project.
 
 - [ ] Adding Update Queries
 - [ ] Adding multiple tables
