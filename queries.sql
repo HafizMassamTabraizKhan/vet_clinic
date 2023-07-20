@@ -25,9 +25,7 @@ BEGIN;
 
     SELECT * FROM animals;
 
-    ROLLBACK;
-
-COMMIT;
+ROLLBACK;
 
 SELECT * FROM animals;
 
@@ -51,8 +49,6 @@ BEGIN;
 ROLLBACK;
 
 SELECT * FROM animals;
-
-COMMIT;
 
 BEGIN;
 
