@@ -2,7 +2,7 @@
 
 CREATE TABLE animals (
     id INT GENERATED ALWAYS AS IDENTITY,
-    name TEXT,
+    name VARCHAR(100),
     date_of_birth DATE,
     escape_attempts INT,
     neutered BOOLEAN,
@@ -10,18 +10,18 @@ CREATE TABLE animals (
 );
 
 ALTER TABLE animals 
-	ADD species TEXT;
+	ADD species VARCHAR(100);
 
 CREATE TABLE owners (
     id INT GENERATED ALWAYS AS IDENTITY,
-    full_name TEXT,
+    full_name VARCHAR(100),
     age INT,
     primary key(id)
 );
 
 CREATE TABLE species (
     id INT GENERATED ALWAYS AS IDENTITY,
-    name TEXT,
+    name VARCHAR(100),
     primary key(id)
 );
 
