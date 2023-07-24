@@ -9,7 +9,7 @@ CREATE TABLE animals (
     weight_kg DECIMAL
 );
 
-ALTER TABLE animals 
+ALTER TABLE animals
 	ADD species VARCHAR(100);
 
 CREATE TABLE owners (
@@ -25,10 +25,10 @@ CREATE TABLE species (
     primary key(id)
 );
 
-ALTER TABLE animals 
+ALTER TABLE animals
 	ADD primary key(id);
 
-ALTER TABLE animals 
+ALTER TABLE animals
 	DROP COLUMN species;
 
 ALTER TABLE animals
@@ -56,4 +56,7 @@ CREATE TABLE visits (
     animal_id INT REFERENCES animals(id),
     visit_date DATE,
     PRIMARY KEY (vet_id, animal_id, visit_date)
-); 
+);
+
+-- Database performance audit
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
