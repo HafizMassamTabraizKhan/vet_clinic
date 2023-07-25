@@ -1,20 +1,20 @@
 /* Populate database with sample data. */
 
-INSERT INTO 
+INSERT INTO
 animals (
     name, date_of_birth, escape_attempts, neutered, weight_kg
     )
-VALUES 
+VALUES
     ('Agumon', '2020-02-03', 0, TRUE, 10.23),
     ('Gabumon', '2018-11-15', 2, TRUE, 8),
     ('Pikachu', '2021-01-07', 1, FALSE, 15.04),
     ('Devimon', '2017-05-12', 5, TRUE, 11);
-    
-INSERT INTO 
+
+INSERT INTO
 animals (
     name, date_of_birth, escape_attempts, neutered, weight_kg
     )
-VALUES 
+VALUES
     ('Charmander', '2020-02-08', 0, FALSE, -11),
     ('Plantmon', '2021-11-15', 2, TRUE, -5.7),
     ('Squirtle', '1993-04-02', 3, FALSE, -12.13),
@@ -96,3 +96,9 @@ INSERT INTO visits (vet_id, animal_id, visit_date) VALUES
     ((SELECT id FROM vets WHERE name = 'Maisy Smith'), (SELECT id FROM animals WHERE name = 'Boarmon'), '2020-08-03'),
     ((SELECT id FROM vets WHERE name = 'Stephanie Mendez'), (SELECT id FROM animals WHERE name = 'Blossom'), '2020-05-24'),
     ((SELECT id FROM vets WHERE name = 'William Tatcher'), (SELECT id FROM animals WHERE name = 'Blossom'), '2021-01-11');
+
+    -- Database Performance Audit
+
+    INSERT INTO visits (animal_id, vet_id, visit_date) SELECT * FROM (SELECT id FROM animals) animal_ids, (SELECT id FROM vets) vets_ids, generate_series('1980-01-01'::timestamp, '2021-01-01', '4 hours') visit_timestamp;
+
+    insert into owners (full_name, email) select 'Owner ' || generate_series(1,2500000), 'owner_' || generate_series(1,2500000) || '@mail.com';
